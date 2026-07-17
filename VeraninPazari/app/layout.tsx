@@ -1,0 +1,26 @@
+import type { Metadata } from "next";
+import "./globals.css";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+
+export const metadata: Metadata = {
+  title: "Vera'nın Pazarı | Doğal ve Özenle Seçilmiş Ürünler",
+  description: "Vera'nın Pazarı ürünlerini keşfedin, WhatsApp üzerinden kolayca bilgi ve sipariş verin.",
+  openGraph: {
+    title: "Vera'nın Pazarı",
+    description: "Doğal ve özenle seçilmiş ürünler.",
+    type: "website"
+  }
+};
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <html lang="tr">
+      <body>
+        <Header />
+        {children}
+        <Footer />
+      </body>
+    </html>
+  );
+}
