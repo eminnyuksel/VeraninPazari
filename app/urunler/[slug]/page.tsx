@@ -26,7 +26,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             <span className="category-pill static">{product.category.name}</span>
             <h1>{product.name}</h1>
             <div className="product-description" dangerouslySetInnerHTML={{ __html: product.description }} />
-            <div className="detail-pricing"><strong className="detail-price">{formatPrice(product.price)}</strong>{product.oldPrice && <del>{formatPrice(product.oldPrice)}</del>}<span>/ {product.unit}</span></div>
+            <div className="detail-pricing">{product.oldPrice && <del>{formatPrice(product.oldPrice)}</del>}<div><strong className="detail-price">{formatPrice(product.price)}</strong><span>/ {product.unit}</span></div></div>
             {product.inStock ? <a className="button" href={whatsappUrl(message)} target="_blank" rel="noreferrer">WhatsApp&apos;tan Sipariş Ver</a> : <span className="button detail-disabled">Şu anda stokta yok</span>}
             <div className="detail-notes"><span>✓ Güncel stok bilgisi</span><span>✓ Hızlı yanıt</span><span>✓ Kolay sipariş</span></div>
           </div>

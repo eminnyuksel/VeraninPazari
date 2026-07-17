@@ -20,6 +20,14 @@ export function ProductForm({ action, categories, product }: { action: (state: A
   const [slug, setSlug] = useState(initial.slug);
   const [slugTouched, setSlugTouched] = useState(Boolean(product));
   const [description, setDescription] = useState(initial.description);
+  const [categoryId, setCategoryId] = useState(initial.categoryId ? String(initial.categoryId) : "");
+  const [price, setPrice] = useState(String(initial.price));
+  const [oldPrice, setOldPrice] = useState(initial.oldPrice === null ? "" : String(initial.oldPrice));
+  const [unit, setUnit] = useState(initial.unit);
+  const [sortOrder, setSortOrder] = useState(String(initial.sortOrder));
+  const [inStock, setInStock] = useState(initial.inStock);
+  const [featured, setFeatured] = useState(initial.featured);
+  const [isActive, setIsActive] = useState(initial.isActive);
   const [image, setImage] = useState(initial.image ? [initial.image] : []);
   const [gallery, setGallery] = useState(initial.galleryImages);
   const [removedImages, setRemovedImages] = useState<string[]>([]);
@@ -39,15 +47,15 @@ export function ProductForm({ action, categories, product }: { action: (state: A
           <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-6"><h2 className="mb-5 font-serif text-xl font-semibold">Ürün bilgileri</h2><div className="grid gap-5 sm:grid-cols-2">
             <Field label="Ürün Adı" error={fieldError("name")} className="sm:col-span-2"><input name="name" value={name} onChange={(event) => { const next = event.target.value; setName(next); if (!slugTouched) setSlug(slugify(next)); }} required className="admin-input" /></Field>
             <Field label="URL Slug" error={fieldError("slug")}><input name="slug" value={slug} onChange={(event) => { setSlugTouched(true); setSlug(slugify(event.target.value)); }} required className="admin-input" /></Field>
-            <Field label="Kategori" error={fieldError("categoryId")}><select name="categoryId" defaultValue={initial.categoryId || ""} required className="admin-input"><option value="" disabled>Kategori seçin</option>{categories.map((category) => <option key={category.id} value={category.id}>{category.name}</option>)}</select></Field>
+            <Field label="Kategori" error={fieldError("categoryId")}><select name="categoryId" value={categoryId} onChange={(event) => setCategoryId(event.target.value)} required className="admin-input"><option value="" disabled>Kategori seçin</option>{categories.map((category) => <option key={category.id} value={category.id}>{category.name}</option>)}</select></Field>
             <div className="sm:col-span-2"><label className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200">Açıklama</label><RichTextEditor initialValue={initial.description} onChange={setDescription} />{fieldError("description") && <p className="mt-1 text-xs text-red-600">{fieldError("description")}</p>}</div>
           </div></section>
           <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-6"><h2 className="mb-5 font-serif text-xl font-semibold">Fiyat ve stok</h2><div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            <Field label="Fiyat" error={fieldError("price")}><input name="price" type="number" min="0" step="0.01" defaultValue={initial.price} required className="admin-input" /></Field>
-            <Field label="Eski Fiyat" error={fieldError("oldPrice")}><input name="oldPrice" type="number" min="0" step="0.01" defaultValue={initial.oldPrice ?? ""} className="admin-input" placeholder="Opsiyonel" /></Field>
-            <Field label="Birim" error={fieldError("unit")}><input name="unit" defaultValue={initial.unit} required className="admin-input" placeholder="kg, adet, paket" /></Field>
-            <Field label="Ürün Sırası" error={fieldError("sortOrder")}><input name="sortOrder" type="number" min="0" defaultValue={initial.sortOrder} required className="admin-input" /></Field>
-          </div><div className="mt-5 grid gap-3 sm:grid-cols-3"><Switch name="inStock" label="Stokta" defaultChecked={initial.inStock} /><Switch name="featured" label="Öne çıkan ürün" defaultChecked={initial.featured} /><Switch name="isActive" label="Aktif / yayında" defaultChecked={initial.isActive} /></div></section>
+            <Field label="Fiyat" error={fieldError("price")}><input name="price" type="number" min="0" step="0.01" value={price} onChange={(event) => setPrice(event.target.value)} required className="admin-input" /></Field>
+            <Field label="Eski Fiyat" error={fieldError("oldPrice")}><input name="oldPrice" type="number" min="0" step="0.01" value={oldPrice} onChange={(event) => setOldPrice(event.target.value)} className="admin-input" placeholder="Opsiyonel" /></Field>
+            <Field label="Birim" error={fieldError("unit")}><input name="unit" value={unit} onChange={(event) => setUnit(event.target.value)} required className="admin-input" placeholder="kg, adet, paket" /></Field>
+            <Field label="Ürün Sırası" error={fieldError("sortOrder")}><input name="sortOrder" type="number" min="0" value={sortOrder} onChange={(event) => setSortOrder(event.target.value)} required className="admin-input" /></Field>
+          </div><div className="mt-5 grid gap-3 sm:grid-cols-3"><Switch name="inStock" label="Stokta" checked={inStock} onChange={setInStock} /><Switch name="featured" label="Öne çıkan ürün" checked={featured} onChange={setFeatured} /><Switch name="isActive" label="Aktif / yayında" checked={isActive} onChange={setIsActive} /></div></section>
         </div>
         <div className="space-y-6">
           <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900"><ImageUploader label="Ana ürün görseli" value={image} onChange={setImage} max={1} onRemove={markRemoved} />{fieldError("image") && <p className="mt-1 text-xs text-red-600">{fieldError("image")}</p>}<div className="mt-6"><ImageUploader label="Galeri görselleri" value={gallery} onChange={setGallery} multiple max={12} onRemove={markRemoved} /></div></section>
@@ -59,4 +67,4 @@ export function ProductForm({ action, categories, product }: { action: (state: A
 }
 
 function Field({ label, error, children, className = "" }: { label: string; error?: string; children: React.ReactNode; className?: string }) { return <div className={className}><label className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200">{label}</label>{children}{error && <p className="mt-1 text-xs text-red-600">{error}</p>}</div>; }
-function Switch({ name, label, defaultChecked }: { name: string; label: string; defaultChecked: boolean }) { return <label className="flex cursor-pointer items-center justify-between rounded-xl border border-slate-200 px-4 py-3 text-sm font-medium dark:border-slate-700"><span>{label}</span><input name={name} type="checkbox" defaultChecked={defaultChecked} className="size-4 accent-emerald-700" /></label>; }
+function Switch({ name, label, checked, onChange }: { name: string; label: string; checked: boolean; onChange: (checked: boolean) => void }) { return <label className="flex cursor-pointer items-center justify-between rounded-xl border border-slate-200 px-4 py-3 text-sm font-medium dark:border-slate-700"><span>{label}</span><input name={name} type="checkbox" checked={checked} onChange={(event) => onChange(event.target.checked)} className="size-4 accent-emerald-700" /></label>; }

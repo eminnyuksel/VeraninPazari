@@ -20,7 +20,7 @@ export function ProductCard({ product }: { product: Product }) {
           <p>{product.description}</p>
         </div>
         <div className="product-bottom">
-          <div className="product-price"><span>{product.unit}</span><strong>{formatPrice(product.price)}</strong>{product.oldPrice && <del>{formatPrice(product.oldPrice)}</del>}</div>
+          <div className="product-price">{product.oldPrice && <del>{formatPrice(product.oldPrice)}</del>}<strong>{formatPrice(product.price)}</strong><span>/ {product.unit}</span></div>
           <a className="button button-small" href={whatsappUrl(message)} target="_blank" rel="noreferrer">
             Sipariş ver <span>↗</span>
           </a>
