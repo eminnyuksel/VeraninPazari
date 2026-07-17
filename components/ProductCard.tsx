@@ -17,9 +17,9 @@ export function ProductCard({ product }: { product: Product }) {
           <p>{product.description}</p>
         </div>
         <div className="product-bottom">
-          <strong>{formatPrice(product.price)}</strong>
+          <div className="product-price"><span>Fiyat</span><strong>{formatPrice(product.price)}</strong></div>
           <a className="button button-small" href={whatsappUrl(message)} target="_blank" rel="noreferrer">
-            WhatsApp
+            Bilgi al <span>↗</span>
           </a>
         </div>
       </div>
