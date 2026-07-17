@@ -40,6 +40,7 @@ pnpm dev
 | --- | --- |
 | `DATABASE_URL` | Neon pooled bağlantı adresi; uygulama tarafından kullanılır. |
 | `DIRECT_URL` | Neon direct bağlantı adresi; migration işlemleri için kullanılır. |
+| `DATABASE_URL_UNPOOLED` | Vercel Neon entegrasyonunun sağladığı direct bağlantı; `DIRECT_URL` yoksa migration için kullanılır. |
 | `AUTH_SECRET` | Auth.js oturum imzalama anahtarı. |
 | `BLOB_READ_WRITE_TOKEN` | Vercel Blob yükleme ve silme anahtarı. |
 | `ADMIN_EMAIL` | Seed edilecek yönetici e-postası. |
