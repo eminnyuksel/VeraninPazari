@@ -30,7 +30,7 @@ pnpm db:seed
 pnpm dev
 ```
 
-`.env.local` içindeki `ADMIN_PASSWORD` en az 12 karakter olmalıdır. Seed tamamlandıktan sonra bu değer yalnızca ilk admini oluşturmak veya parolasını yenilemek için kullanılır; veritabanında yalnızca bcrypt özeti tutulur.
+`.env.local` içindeki `ADMIN_PASSWORD` en az 8 karakter olmalıdır. Seed tamamlandıktan sonra bu değer yalnızca ilk admini oluşturmak veya parolasını yenilemek için kullanılır; veritabanında yalnızca bcrypt özeti tutulur.
 
 `AUTH_SECRET` üretmek için `npx auth secret` komutunu kullanabilirsiniz.
 
@@ -43,7 +43,8 @@ pnpm dev
 | `DATABASE_URL_UNPOOLED` | Vercel Neon entegrasyonunun sağladığı direct bağlantı; `DIRECT_URL` yoksa migration için kullanılır. |
 | `AUTH_SECRET` | Auth.js oturum imzalama anahtarı. |
 | `BLOB_READ_WRITE_TOKEN` | Vercel Blob yükleme ve silme anahtarı. |
-| `ADMIN_EMAIL` | Seed edilecek yönetici e-postası. |
+| `ADMIN_USERNAME` | Admin paneli giriş kullanıcı adı. |
+| `ADMIN_EMAIL` | Yönetici hesabında dahili olarak saklanan e-posta. |
 | `ADMIN_PASSWORD` | Seed edilecek yönetici parolası. |
 | `NEXT_PUBLIC_SITE_URL` | Ürün mesajındaki kanonik site adresi. |
 | `NEXT_PUBLIC_WHATSAPP_NUMBER` | Ülke koduyla, boşluksuz numara. Varsayılan: `905358431803`. |
@@ -77,4 +78,4 @@ Admin işlemleri doğrudan PostgreSQL'e yazılır ve ilgili sayfaları yeniden d
 - Admin işlemleri sunucu tarafında tekrar kimlik doğrulaması yapar.
 - Görsel yüklemeleri MIME türü ve 5 MB dosya sınırıyla doğrulanır.
 - Ürün açıklamaları kaydedilmeden önce güvenli HTML etiketleriyle sınırlandırılır.
-- Admin parolası en az 12 karakter olmalı ve düzenli aralıklarla yenilenmelidir.
+- Admin parolası en az 8 karakter olmalı, tahmin edilmesi zor seçilmeli ve düzenli aralıklarla yenilenmelidir.

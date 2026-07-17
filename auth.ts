@@ -12,14 +12,14 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
     Credentials({
       credentials: {
-        email: { type: "email" },
+        username: { type: "text" },
         password: { type: "password" },
       },
       async authorize(rawCredentials) {
         const parsed = signInSchema.safeParse(rawCredentials);
         if (!parsed.success) return null;
 
-        const admin = await prisma.admin.findUnique({ where: { email: parsed.data.email } });
+        const admin = await prisma.admin.findUnique({ where: { username: parsed.data.username } });
         if (!admin?.isActive) return null;
 
         const passwordMatches = await compare(parsed.data.password, admin.passwordHash);

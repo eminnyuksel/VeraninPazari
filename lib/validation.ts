@@ -7,7 +7,7 @@ const optionalPrice = z.preprocess(
 );
 
 export const signInSchema = z.object({
-  email: z.string().trim().toLowerCase().email("Geçerli bir e-posta girin."),
+  username: z.string().trim().toLowerCase().min(3, "Kullanıcı adı en az 3 karakter olmalı.").max(80).regex(/^[a-z0-9._-]+$/, "Kullanıcı adı geçersiz."),
   password: z.string().min(8, "Şifre en az 8 karakter olmalı.").max(128),
 });
 

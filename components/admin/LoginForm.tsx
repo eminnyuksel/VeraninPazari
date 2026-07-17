@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
-import { LoaderCircle, LockKeyhole, Mail } from "lucide-react";
+import { LoaderCircle, LockKeyhole, UserRound } from "lucide-react";
 import { loginAction } from "@/app/admin/login/actions";
 import type { ActionState } from "@/lib/validation";
 
@@ -13,12 +13,12 @@ export function LoginForm() {
   return (
     <form action={formAction} className="space-y-5">
       <div>
-        <label htmlFor="email" className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200">E-posta</label>
+        <label htmlFor="username" className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200">Kullanıcı adı</label>
         <div className="relative">
-          <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
-          <input id="email" name="email" type="email" autoComplete="email" required className="h-12 w-full rounded-xl border border-slate-200 bg-white pl-10 pr-4 text-sm outline-none transition focus:border-emerald-600 focus:ring-4 focus:ring-emerald-600/10 dark:border-slate-700 dark:bg-slate-900" placeholder="admin@veraninpazari.com" />
+          <UserRound className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+          <input id="username" name="username" type="text" autoComplete="username" required className="h-12 w-full rounded-xl border border-slate-200 bg-white pl-10 pr-4 text-sm outline-none transition focus:border-emerald-600 focus:ring-4 focus:ring-emerald-600/10 dark:border-slate-700 dark:bg-slate-900" placeholder="Kullanıcı adınız" />
         </div>
-        {state.errors?.email?.[0] && <p className="mt-1 text-xs text-red-600">{state.errors.email[0]}</p>}
+        {state.errors?.username?.[0] && <p className="mt-1 text-xs text-red-600">{state.errors.username[0]}</p>}
       </div>
       <div>
         <label htmlFor="password" className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200">Şifre</label>

@@ -6,7 +6,7 @@ import { signInSchema, type ActionState } from "@/lib/validation";
 
 export async function loginAction(_: ActionState, formData: FormData): Promise<ActionState> {
   const parsed = signInSchema.safeParse({
-    email: formData.get("email"),
+    username: formData.get("username"),
     password: formData.get("password"),
   });
 
@@ -19,7 +19,7 @@ export async function loginAction(_: ActionState, formData: FormData): Promise<A
     return { success: true };
   } catch (error) {
     if (error instanceof AuthError) {
-      return { message: "E-posta veya şifre hatalı." };
+      return { message: "Kullanıcı adı veya şifre hatalı." };
     }
     throw error;
   }
