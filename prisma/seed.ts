@@ -1,4 +1,3 @@
-import "dotenv/config";
 import { hash } from "bcryptjs";
 import { PrismaNeon } from "@prisma/adapter-neon";
 import { PrismaClient } from "../lib/generated/prisma/client";
