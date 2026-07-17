@@ -1,15 +1,18 @@
 import Link from "next/link";
 import type { Product } from "@/lib/types";
-import { formatPrice, whatsappUrl } from "@/lib/format";
+import { formatPrice, productOrderMessage, whatsappUrl } from "@/lib/format";
+
+/* Product images are user-managed remote URLs from Vercel Blob. */
+/* eslint-disable @next/next/no-img-element */
 
 export function ProductCard({ product }: { product: Product }) {
-  const message = `Merhaba, Vera'nın Pazarı'nda gördüğüm “${product.name}” ürünü hakkında bilgi almak istiyorum.`;
+  const message = productOrderMessage(product);
 
   return (
     <article className="product-card">
       <Link href={`/urunler/${product.slug}`} className="product-image-wrap">
-        <img className="product-image" src={product.image_url} alt={product.name} loading="lazy" />
-        <span className="category-pill">{product.category}</span>
+        <img className="product-image" src={product.image} alt={product.name} loading="lazy" />
+        <span className="category-pill">{product.category.name}</span>
       </Link>
       <div className="product-body">
         <div>
@@ -17,9 +20,9 @@ export function ProductCard({ product }: { product: Product }) {
           <p>{product.description}</p>
         </div>
         <div className="product-bottom">
-          <div className="product-price"><span>Fiyat</span><strong>{formatPrice(product.price)}</strong></div>
+          <div className="product-price"><span>{product.unit}</span><strong>{formatPrice(product.price)}</strong>{product.oldPrice && <del>{formatPrice(product.oldPrice)}</del>}</div>
           <a className="button button-small" href={whatsappUrl(message)} target="_blank" rel="noreferrer">
-            Bilgi al <span>↗</span>
+            Sipariş ver <span>↗</span>
           </a>
         </div>
       </div>

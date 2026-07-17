@@ -5,5 +5,7 @@ out
 .env.local
 .env.*.local
 .vercel
+lib/generated/prisma
+*.tsbuildinfo
 *.log
 .DS_Store

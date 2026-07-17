@@ -1,11 +1,16 @@
 export type Product = {
-  id: number;
+  id: string;
   slug: string;
   name: string;
   description: string;
-  price: number | null;
-  image_url: string;
-  category: string;
+  price: number;
+  oldPrice: number | null;
+  image: string;
+  galleryImages: string[];
+  category: { id: number; name: string; slug: string };
+  unit: string;
   featured: boolean;
-  active: boolean;
+  inStock: boolean;
+  isActive: boolean;
+  sortOrder: number;
 };

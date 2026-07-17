@@ -41,9 +41,16 @@ export default async function Home() {
             <div><span className="eyebrow">Pazardaki güzellikler</span><h2>Vera&apos;nın seçtikleri</h2></div>
             <p>Az ama iyi. Mevsiminde, güvenilir ve sofrada gerçekten fark yaratan ürünler.</p>
           </div>
-          <div className="product-grid">
-            {products.map((product) => <ProductCard key={product.id} product={product} />)}
-          </div>
+          {products.length > 0 ? (
+            <div className="product-grid">
+              {products.map((product) => <ProductCard key={product.id} product={product} />)}
+            </div>
+          ) : (
+            <div className="storefront-empty">
+              <h3>Yeni ürünler hazırlanıyor</h3>
+              <p>Vera pazarı düzenliyor. Çok yakında burada yeni lezzetler olacak.</p>
+            </div>
+          )}
         </div>
       </section>
 
