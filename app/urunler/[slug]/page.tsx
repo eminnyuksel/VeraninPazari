@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getProduct } from "@/lib/products";
 import { formatPrice, productOrderMessage, whatsappUrl } from "@/lib/format";
+import { ProductGallery } from "@/components/ProductGallery";
 
 /* Product images are user-managed remote URLs from Vercel Blob. */
 /* eslint-disable @next/next/no-img-element */
@@ -21,7 +22,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       <div className="container">
         <Link href="/#urunler" className="back-link">← Tüm ürünlere dön</Link>
         <div className="detail-grid">
-          <div className="detail-media"><div className="detail-image"><img src={product.image} alt={product.name} /></div>{images.length > 1 && <div className="detail-gallery">{images.slice(1).map((image, index) => <img key={image} src={image} alt={`${product.name} galeri görseli ${index + 1}`} />)}</div>}</div>
+          <ProductGallery images={images} productName={product.name} />
           <div className="detail-copy">
             <span className="category-pill static">{product.category.name}</span>
             <h1>{product.name}</h1>
