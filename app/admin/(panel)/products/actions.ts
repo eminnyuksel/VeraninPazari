@@ -24,8 +24,6 @@ function parseProductForm(formData: FormData) {
     slug: formData.get("slug"),
     categoryId: formData.get("categoryId"),
     description: formData.get("description"),
-    price: formData.get("price"),
-    oldPrice: formData.get("oldPrice"),
     unit: formData.get("unit"),
     image: formData.get("image"),
     galleryImages,
@@ -75,7 +73,7 @@ export async function createProduct(_: ActionState, formData: FormData): Promise
   const parsed = parseProductForm(formData);
   if (!parsed.success) return { message: "Form alanlarını kontrol edin.", errors: parsed.error.flatten().fieldErrors };
 
-  const data = { ...parsed.data, description: sanitizeDescription(parsed.data.description) };
+  const data = { ...parsed.data, price: 0, oldPrice: null, description: sanitizeDescription(parsed.data.description) };
   try {
     const product = await prisma.product.create({ data });
     revalidateCatalog(product.slug);
@@ -99,7 +97,7 @@ export async function updateProduct(id: string, _: ActionState, formData: FormDa
   try {
     const product = await prisma.product.update({
       where: { id: productId },
-      data: { ...parsed.data, description: sanitizeDescription(parsed.data.description) },
+      data: { ...parsed.data, price: 0, oldPrice: null, description: sanitizeDescription(parsed.data.description) },
     });
     revalidateCatalog(current.slug);
     revalidateCatalog(product.slug);

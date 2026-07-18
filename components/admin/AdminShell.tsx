@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BarChart3, Boxes, ExternalLink, FolderTree, LogOut } from "lucide-react";
+import { BarChart3, Boxes, ExternalLink, FolderTree, Images, LogOut } from "lucide-react";
 import { signOut } from "@/auth";
 import { ThemeToggle } from "@/components/admin/ThemeToggle";
 
@@ -8,6 +8,7 @@ const navigation = [
   { href: "/admin", label: "Dashboard", icon: BarChart3 },
   { href: "/admin/products", label: "Ürünler", icon: Boxes },
   { href: "/admin/categories", label: "Kategoriler", icon: FolderTree },
+  { href: "/admin/gallery", label: "Galeri", icon: Images },
 ];
 
 export function AdminShell({ children, adminName }: { children: React.ReactNode; adminName: string }) {
@@ -15,7 +16,7 @@ export function AdminShell({ children, adminName }: { children: React.ReactNode;
     <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
       <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 border-r border-slate-200 bg-white px-4 py-5 dark:border-slate-800 dark:bg-slate-900 md:flex md:flex-col">
         <Link href="/admin" className="flex items-center gap-3 px-2">
-          <span className="grid size-11 place-items-center overflow-hidden rounded-xl bg-amber-100"><Image src="/brand/vera-logo.png" alt="" width={50} height={50} /></span>
+          <span className="grid size-11 place-items-center overflow-hidden rounded-xl bg-amber-100"><Image src="/brand/vera-user-logo.png" alt="" width={50} height={50} /></span>
           <span><strong className="block font-serif text-base">Vera&apos;nın Pazarı</strong><small className="text-xs text-slate-500">Yönetim paneli</small></span>
         </Link>
         <nav className="mt-10 space-y-1">

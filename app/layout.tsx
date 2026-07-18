@@ -5,8 +5,8 @@ import { SiteChrome } from "@/components/SiteChrome";
 
 export const metadata: Metadata = {
   title: "Vera'nın Pazarı | Doğal ve Özenle Seçilmiş Ürünler",
-  description: "Vera'nın Pazarı ürünlerini keşfedin, WhatsApp üzerinden kolayca bilgi ve sipariş verin.",
-  icons: { icon: "/brand/vera-logo.png", apple: "/brand/vera-logo.png" },
+  description: "Vera'nın Pazarı ürünlerini keşfedin ve WhatsApp üzerinden kolayca bilgi alın.",
+  icons: { icon: "/brand/vera-user-logo.png", apple: "/brand/vera-user-logo.png" },
   openGraph: {
     title: "Vera'nın Pazarı",
     description: "Doğal ve özenle seçilmiş ürünler.",

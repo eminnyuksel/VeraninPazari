@@ -6,7 +6,9 @@ import { ImagePlus, LoaderCircle, Trash2, UploadCloud } from "lucide-react";
 import { toast } from "sonner";
 import { uploadProductImage } from "@/app/admin/(panel)/products/actions";
 
-export function ImageUploader({ label, value, onChange, multiple = false, max = 1, onRemove }: { label: string; value: string[]; onChange: (urls: string[]) => void; multiple?: boolean; max?: number; onRemove?: (url: string) => void }) {
+type UploadAction = (formData: FormData) => Promise<{ url: string }>;
+
+export function ImageUploader({ label, value, onChange, multiple = false, max = 1, onRemove, uploadAction = uploadProductImage }: { label: string; value: string[]; onChange: (urls: string[]) => void; multiple?: boolean; max?: number; onRemove?: (url: string) => void; uploadAction?: UploadAction }) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [uploading, setUploading] = useState(false);
   const [dragging, setDragging] = useState(false);
@@ -20,7 +22,7 @@ export function ImageUploader({ label, value, onChange, multiple = false, max = 
       for (const file of selected) {
         const formData = new FormData();
         formData.set("file", file);
-        const result = await uploadProductImage(formData);
+        const result = await uploadAction(formData);
         uploaded.push(result.url);
       }
       onChange(multiple ? [...value, ...uploaded] : uploaded.slice(-1));

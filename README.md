@@ -10,7 +10,7 @@ Vera'nın Pazarı için Next.js 15, Prisma, Neon PostgreSQL, Auth.js ve Vercel B
 - Sürükle-bırak Vercel Blob görsel yükleme ve galeri yönetimi
 - Dashboard istatistikleri ve son güncellenen ürünler
 - Neon PostgreSQL'den dinamik mağaza kataloğu
-- Ürün bazlı, hazır mesaj içeren WhatsApp sipariş bağlantıları
+- Ürün bazlı, hazır mesaj içeren WhatsApp bilgi bağlantıları
 - Responsive tasarım, koyu/açık tema, toast bildirimleri ve form doğrulama
 
 ## Gereksinimler
@@ -70,7 +70,7 @@ pnpm db:seed
 3. İlk admin için yerelde veya güvenli bir CI ortamında `pnpm db:seed` çalıştırın.
 4. GitHub `main` branch'ine gönderin. `vercel-build` migration'ları uygular ve production build'i üretir.
 
-Admin işlemleri doğrudan PostgreSQL'e yazılır ve ilgili sayfaları yeniden doğrular. Ürün/fiyat/stok/görsel değişiklikleri için kod değişikliği veya yeniden deploy gerekmez.
+Admin işlemleri doğrudan PostgreSQL'e yazılır ve ilgili sayfaları yeniden doğrular. Ürün, stok ve görsel değişiklikleri için kod değişikliği veya yeniden deploy gerekmez.
 
 ## Güvenlik notları
 

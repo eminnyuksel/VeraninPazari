@@ -6,8 +6,6 @@ function serializeProduct(product: {
   slug: string;
   name: string;
   description: string;
-  price: { toString(): string };
-  oldPrice: { toString(): string } | null;
   image: string;
   galleryImages: string[];
   category: { id: number; name: string; slug: string };
@@ -20,8 +18,6 @@ function serializeProduct(product: {
   return {
     ...product,
     id: String(product.id),
-    price: Number(product.price),
-    oldPrice: product.oldPrice ? Number(product.oldPrice) : null,
   };
 }
 

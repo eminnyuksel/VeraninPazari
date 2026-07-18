@@ -1,12 +1,12 @@
 import Link from "next/link";
 import type { Product } from "@/lib/types";
-import { formatPrice, productOrderMessage, whatsappUrl } from "@/lib/format";
+import { productInfoMessage, whatsappUrl } from "@/lib/format";
 
 /* Product images are user-managed remote URLs from Vercel Blob. */
 /* eslint-disable @next/next/no-img-element */
 
 export function ProductCard({ product }: { product: Product }) {
-  const message = productOrderMessage(product);
+  const message = productInfoMessage(product);
 
   return (
     <article className="product-card">
@@ -20,9 +20,8 @@ export function ProductCard({ product }: { product: Product }) {
           <p>{product.description}</p>
         </div>
         <div className="product-bottom">
-          <div className="product-price">{product.oldPrice && <del>{formatPrice(product.oldPrice)}</del>}<strong>{formatPrice(product.price)}</strong><span>/ {product.unit}</span></div>
           <a className="button button-small" href={whatsappUrl(message)} target="_blank" rel="noreferrer">
-            Sipariş ver <span>↗</span>
+            Bilgi al <span>↗</span>
           </a>
         </div>
       </div>

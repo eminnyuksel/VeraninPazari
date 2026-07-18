@@ -1,11 +1,6 @@
 import { z } from "zod";
 
 const checkbox = z.preprocess((value) => value === "on" || value === "true" || value === true, z.boolean());
-const optionalPrice = z.preprocess(
-  (value) => (value === "" || value === null || value === undefined ? undefined : value),
-  z.coerce.number().nonnegative("Eski fiyat negatif olamaz.").optional(),
-);
-
 export const signInSchema = z.object({
   username: z.string().trim().toLowerCase().min(3, "Kullanıcı adı en az 3 karakter olmalı.").max(80).regex(/^[a-z0-9._-]+$/, "Kullanıcı adı geçersiz."),
   password: z.string().min(8, "Şifre en az 8 karakter olmalı.").max(128),
@@ -16,8 +11,6 @@ export const productSchema = z.object({
   slug: z.string().trim().min(2).max(180).regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, "Slug formatı geçersiz."),
   categoryId: z.coerce.number().int().positive("Kategori seçin."),
   description: z.string().trim().min(10, "Açıklama en az 10 karakter olmalı.").max(20_000),
-  price: z.coerce.number().nonnegative("Fiyat negatif olamaz."),
-  oldPrice: optionalPrice,
   unit: z.string().trim().min(1, "Birim gerekli.").max(40),
   image: z.string().url("Ana ürün görseli gerekli."),
   galleryImages: z.array(z.string().url()).max(12, "En fazla 12 galeri görseli eklenebilir."),

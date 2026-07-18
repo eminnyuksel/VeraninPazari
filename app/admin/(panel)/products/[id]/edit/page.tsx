@@ -13,7 +13,7 @@ export default async function EditProductPage({ params }: { params: Promise<{ id
   ]);
   if (!product) notFound();
 
-  const value = { name: product.name, slug: product.slug, description: product.description, price: Number(product.price), oldPrice: product.oldPrice ? Number(product.oldPrice) : null, categoryId: product.categoryId, image: product.image, galleryImages: product.galleryImages, unit: product.unit, featured: product.featured, inStock: product.inStock, isActive: product.isActive, sortOrder: product.sortOrder };
+  const value = { name: product.name, slug: product.slug, description: product.description, categoryId: product.categoryId, image: product.image, galleryImages: product.galleryImages, unit: product.unit, featured: product.featured, inStock: product.inStock, isActive: product.isActive, sortOrder: product.sortOrder };
   const action = updateProduct.bind(null, id);
   return <><PageHeader eyebrow="Ürün düzenle" title={product.name} description="Değişiklikler kaydedildiğinde vitrine anında yansır." /><ProductForm action={action} categories={categories} product={value} /></>;
 }

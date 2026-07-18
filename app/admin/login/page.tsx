@@ -15,7 +15,7 @@ export default async function AdminLoginPage() {
       <div className="absolute -right-20 bottom-0 size-80 rounded-full bg-amber-200/50 blur-3xl dark:bg-amber-900/10" />
       <section className="relative z-10 w-full max-w-md rounded-[28px] border border-white/70 bg-white/85 p-8 shadow-2xl shadow-emerald-950/10 backdrop-blur-xl dark:border-slate-800 dark:bg-slate-900/85 sm:p-10">
         <div className="mb-8 flex items-center gap-4">
-          <div className="grid size-16 place-items-center overflow-hidden rounded-2xl bg-amber-100"><Image src="/brand/vera-logo.png" alt="Vera" width={72} height={72} priority /></div>
+          <div className="grid size-16 place-items-center overflow-hidden rounded-2xl bg-amber-100"><Image src="/brand/vera-user-logo.png" alt="Vera'nın Pazarı" width={72} height={72} priority /></div>
           <div><p className="text-xs font-bold uppercase tracking-[.22em] text-emerald-700 dark:text-emerald-400">Yönetim paneli</p><h1 className="font-serif text-2xl font-semibold">Tekrar hoş geldiniz</h1></div>
         </div>
         <p className="mb-7 text-sm leading-6 text-slate-500 dark:text-slate-400">Ürünleri, kategorileri ve stok durumunu güvenli yönetim alanından güncelleyin.</p>
