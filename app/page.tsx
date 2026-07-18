@@ -17,8 +17,10 @@ export default async function Home() {
       <GalleryBackdrop images={galleryImages.length > 0 ? galleryImages.map((item) => item.image) : ["/brand/kus-yuvasi.jpg"]} />
       <section className="hero compact-hero">
         <div className="container hero-shell">
-          <Image className="hero-image" src="/brand/kus-yuvasi.jpg" alt="Kuş Yuvası köyü ve doğası" fill sizes="(max-width: 760px) 100vw, 1200px" priority />
-          <div className="hero-shade" />
+          <div className="hero-media">
+            <Image className="hero-image" src="/brand/kus-yuvasi.jpg" alt="Kuş Yuvası köyü ve doğası" fill sizes="(max-width: 760px) 100vw, 1200px" priority />
+            <div className="hero-shade" />
+          </div>
           <div className="hero-copy">
             <Image className="hero-copy-logo" src="/brand/vera-user-logo.png" alt="Vera'nın Pazarı" width={132} height={132} />
             <span className="eyebrow">Vera&apos;nın özenle seçtikleri</span>
