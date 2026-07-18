@@ -9,13 +9,29 @@ export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const [products, galleryImages] = await Promise.all([getProducts(), getGalleryImages()]);
-  const instagram = process.env.NEXT_PUBLIC_INSTAGRAM || "veraninpazari";
   const location = "Ankara, Türkiye";
   const announcementChannel = "https://whatsapp.com/channel/0029VbCca52GzzKVGDNaAD3P";
 
   return (
     <main className="storefront-main">
       <GalleryBackdrop images={galleryImages.length > 0 ? galleryImages.map((item) => item.image) : ["/brand/kus-yuvasi.jpg"]} />
+      <section className="hero compact-hero">
+        <div className="container hero-shell">
+          <Image className="hero-image" src="/brand/kus-yuvasi.jpg" alt="Kuş Yuvası köyü ve doğası" fill sizes="(max-width: 760px) 100vw, 1200px" priority />
+          <div className="hero-shade" />
+          <div className="hero-copy">
+            <Image className="hero-copy-logo" src="/brand/vera-user-logo.png" alt="Vera'nın Pazarı" width={132} height={132} />
+            <span className="eyebrow">Vera&apos;nın özenle seçtikleri</span>
+            <h1>İyi ürün,<br /><em>güzel sofra.</em></h1>
+            <p>Doğal, güvenilir ve lezzetli ürünleri Vera&apos;nın merakıyla buluyor; sofranıza samimiyetle getiriyoruz.</p>
+            <div className="hero-actions">
+              <a className="button" href={whatsappUrl("Merhaba, Vera'nın Pazarı ürünleri hakkında bilgi almak istiyorum.")} target="_blank" rel="noreferrer">Bilgi al <span>↗</span></a>
+              <a className="button button-secondary" href="/galeri">Galeriyi gör <span>→</span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="section catalog-section catalog-first" id="urunler">
         <div className="container">
           <div className="section-heading catalog-heading">
@@ -32,23 +48,6 @@ export default async function Home() {
               <p>Vera pazarı düzenliyor. Çok yakında burada yeni lezzetler olacak.</p>
             </div>
           )}
-        </div>
-      </section>
-
-      <section className="hero compact-hero">
-        <div className="container hero-shell">
-          <Image className="hero-image" src="/brand/kus-yuvasi.jpg" alt="Kuş Yuvası köyü ve doğası" fill sizes="(max-width: 760px) 100vw, 1200px" priority />
-          <div className="hero-shade" />
-          <div className="hero-copy">
-            <Image className="hero-copy-logo" src="/brand/vera-user-logo.png" alt="Vera'nın Pazarı" width={132} height={132} />
-            <span className="eyebrow">Vera&apos;nın özenle seçtikleri</span>
-            <h1>İyi ürün,<br /><em>güzel sofra.</em></h1>
-            <p>Doğal, güvenilir ve lezzetli ürünleri Vera&apos;nın merakıyla buluyor; sofranıza samimiyetle getiriyoruz.</p>
-            <div className="hero-actions">
-              <a className="button" href={whatsappUrl("Merhaba, Vera'nın Pazarı ürünleri hakkında bilgi almak istiyorum.")} target="_blank" rel="noreferrer">Bilgi al <span>↗</span></a>
-              <a className="button button-secondary" href="/galeri">Galeriyi gör <span>→</span></a>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -70,10 +69,14 @@ export default async function Home() {
             <h3>Vera burada.</h3>
             <p>Ürün, stok ve teslimat bilgileri için bize yazın.</p>
             <a className="contact-main-button" href={whatsappUrl("Merhaba, Vera'nın Pazarı ile iletişime geçmek istiyorum.")} target="_blank" rel="noreferrer">WhatsApp&apos;tan bilgi al <span>↗</span></a>
-            <div className="compact-contact-links"><a href={announcementChannel} target="_blank" rel="noreferrer">Duyuru kanalı ↗</a><a href={`https://instagram.com/${instagram}`} target="_blank" rel="noreferrer">@{instagram}</a><span>{location}</span></div>
+            <div className="compact-contact-links"><a className="whatsapp-channel-link" href={announcementChannel} target="_blank" rel="noreferrer"><WhatsAppIcon />WhatsApp Vera&apos;nın Pazarı Duyuru Kanalı <span>↗</span></a><span>{location}</span></div>
           </article>
         </div>
       </section>
     </main>
   );
+}
+
+function WhatsAppIcon() {
+  return <svg aria-hidden="true" viewBox="0 0 32 32"><path fill="currentColor" d="M16 3.2A12.7 12.7 0 0 0 5.1 22.4L3.4 28.8l6.5-1.7A12.8 12.8 0 1 0 16 3.2Zm0 23.2c-2 0-4-.6-5.7-1.6l-.4-.2-3.8 1 1-3.7-.3-.4A10.4 10.4 0 1 1 16 26.4Zm5.7-7.8c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.8.2l-1 1.2c-.2.3-.4.3-.7.1-1.9-.9-3.2-1.7-4.5-3.9-.3-.5.3-.5.9-1.7.1-.2.1-.5 0-.7l-1-2.4c-.3-.6-.5-.5-.8-.5h-.7c-.3 0-.7.1-1 .5-.3.4-1.3 1.3-1.3 3.1s1.3 3.6 1.5 3.8c.2.3 2.6 4 6.3 5.6 2.3 1 3.2 1.1 4.3.9.7-.1 1.8-.7 2-1.4.3-.7.3-1.4.2-1.5-.1-.3-.4-.4-.7-.5Z" /></svg>;
 }
