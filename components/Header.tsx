@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { whatsappUrl } from "@/lib/format";
 
 export function Header() {
@@ -8,11 +7,6 @@ export function Header() {
       <div className="announcement">Vera&apos;nın özenle seçtiği doğal lezzetler • WhatsApp&apos;tan kolay bilgi</div>
       <header className="site-header">
         <div className="container nav-wrap">
-          <Link href="/" className="brand" aria-label="Vera'nın Pazarı ana sayfa">
-            <span className="brand-mark">
-              <Image src="/brand/vera-user-logo.png" alt="Vera" width={58} height={58} priority />
-            </span>
-          </Link>
           <nav className="nav-links" aria-label="Ana menü">
             <Link href="/#urunler">Ürünler</Link>
             <Link href="/galeri">Galeri</Link>
