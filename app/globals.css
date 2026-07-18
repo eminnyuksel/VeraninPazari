@@ -83,16 +83,18 @@ img { display: block; max-width: 100%; }
 
 .section { padding: 106px 0; }
 .catalog-section .container, .order-section .container { padding: 48px; border: 1px solid rgba(23, 53, 42, .11); border-radius: 34px; background: rgba(247, 242, 232, .9); box-shadow: 0 24px 65px rgba(22, 50, 39, .1); backdrop-filter: blur(14px); }
-.catalog-first { padding: 14px 0 30px; }
-.catalog-first .container { padding: 22px 30px 28px; }
-.catalog-heading { margin-bottom: 18px; }
+.catalog-first { padding: 10px 0 24px; }
+.catalog-first .container { padding: 16px 24px 22px; }
+.catalog-heading { margin-bottom: 12px; }
 .catalog-heading h2 { font-size: clamp(2.15rem, 3.5vw, 3.3rem); }
-.compact-hero { padding: 18px 0 0; }
-.compact-hero .hero-shell { min-height: 370px; }
-.compact-hero .hero-copy { padding-block: 24px; }
-.compact-hero .hero-copy-logo { width: 72px; height: 72px; margin-bottom: 9px; }
-.compact-hero h1 { font-size: clamp(2.8rem, 4.5vw, 4.1rem); }
-.compact-hero .hero-copy > p { margin-block: 12px 15px; font-size: .88rem; }
+.compact-hero { padding: 12px 0 0; }
+.compact-hero .hero-shell { min-height: 280px; }
+.compact-hero .hero-copy { padding-block: 18px; }
+.compact-hero .hero-copy-logo { width: 58px; height: 58px; margin-bottom: 6px; }
+.compact-hero h1 { font-size: clamp(2.45rem, 4vw, 3.55rem); }
+.compact-hero .hero-copy > p { margin-block: 8px 11px; font-size: .8rem; line-height: 1.45; }
+.compact-hero .eyebrow { margin-bottom: 8px; font-size: .62rem; }
+.compact-hero .button { min-height: 43px; padding: 9px 17px; font-size: .8rem; }
 .section-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 48px; margin-bottom: 42px; }
 .section-heading h2, .about-copy h2, .contact-card h2 { font-size: clamp(2.6rem, 4.8vw, 4.8rem); }
 .section-heading p { max-width: 430px; margin: 0 0 5px; color: var(--ink-soft); }
@@ -113,6 +115,19 @@ img { display: block; max-width: 100%; }
 .product-body h3 { margin: 0 0 8px; font-family: Georgia, serif; font-size: 1.5rem; line-height: 1.2; }
 .product-body p { margin: 0; color: var(--ink-soft); font-size: .9rem; }
 .product-bottom { display: flex; align-items: center; justify-content: flex-end; gap: 14px; padding-top: 18px; border-top: 1px solid var(--line); }
+
+@media (min-width: 701px) {
+  .catalog-first .product-grid { gap: 14px; }
+  .catalog-first .product-card { display: grid; grid-template-columns: 132px minmax(0, 1fr); min-height: 172px; border-radius: 18px; }
+  .catalog-first .product-image-wrap { min-height: 160px; margin: 6px; border-radius: 13px; }
+  .catalog-first .product-image { height: 100%; min-height: 160px; }
+  .catalog-first .category-pill { left: 7px; top: 7px; padding: 4px 7px; font-size: .52rem; }
+  .catalog-first .product-body { gap: 8px; padding: 12px 12px 12px 7px; }
+  .catalog-first .product-body h3 { margin-bottom: 3px; font-size: 1.1rem; }
+  .catalog-first .product-body p { display: -webkit-box; overflow: hidden; font-size: .7rem; line-height: 1.35; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+  .catalog-first .product-bottom { padding-top: 7px; }
+  .catalog-first .product-bottom .button { min-height: 34px; padding: 6px 11px; font-size: .68rem; }
+}
 
 .vera-story { padding: 38px 0; }
 .story-card { min-height: 680px; overflow: hidden; display: grid; grid-template-columns: .92fr 1.08fr; align-items: center; gap: 70px; padding: 45px 80px 0 45px; border-radius: 34px; background: radial-gradient(circle at 20% 45%, rgba(233, 185, 94, .13), transparent 35%), linear-gradient(135deg, #12382a, #0e2e23); color: #fff; box-shadow: 0 30px 75px rgba(18, 56, 42, .18); }
@@ -222,9 +237,9 @@ img { display: block; max-width: 100%; }
   .hero-shell { min-height: 630px; }
   .hero-copy { width: 60%; padding: 48px; }
   .hero h1 { font-size: clamp(3.4rem, 8vw, 5.4rem); }
-  .compact-hero .hero-shell { min-height: 370px; }
-  .compact-hero .hero-copy { width: 58%; padding: 26px 30px; }
-  .compact-hero h1 { font-size: clamp(2.7rem, 5vw, 3.8rem); }
+  .compact-hero .hero-shell { min-height: 280px; }
+  .compact-hero .hero-copy { width: 58%; padding: 18px 24px; }
+  .compact-hero h1 { font-size: clamp(2.4rem, 4.5vw, 3.25rem); }
   .product-grid { grid-template-columns: repeat(2, 1fr); }
   .public-gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .story-card, .contact-card, .detail-grid { grid-template-columns: 1fr; }
