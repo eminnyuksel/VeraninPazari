@@ -38,7 +38,7 @@ export default async function Home() {
         <div className="container promise-grid"><div><span>01</span><strong>Özenle seçilir</strong><p>Her ürün önce Vera&apos;nın pazarından geçer.</p></div><div><span>02</span><strong>Doğrudan konuşuruz</strong><p>Ürün ve teslimat sorularına yanıt veririz.</p></div><div><span>03</span><strong>Keyifle paylaşılır</strong><p>Sofranıza iyi hissettiren lezzetler gelir.</p></div></div>
       </section>
 
-      <section className="section" id="urunler">
+      <section className="section catalog-section" id="urunler">
         <div className="container">
           <div className="section-heading">
             <div><span className="eyebrow">Pazardaki güzellikler</span><h2>Vera&apos;nın seçtikleri</h2></div>
