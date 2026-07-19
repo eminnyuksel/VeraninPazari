@@ -47,13 +47,17 @@ export function Header() {
 
           <nav id={menuId} className="nav-links" aria-label="Ana menü" data-open={menuOpen}>
             <div className="mobile-nav-head">
-              <span>Menü</span>
+              <div className="mobile-nav-identity">
+                <Image src="/brand/vera-user-logo.png" alt="" width={46} height={46} />
+                <span><strong>Vera&apos;nın Pazarı</strong><small>Doğadan sofraya</small></span>
+              </div>
               <button type="button" aria-label="Menüyü kapat" onClick={closeMenu}><X size={22} /></button>
             </div>
             {navigation.map((item, index) => {
               const active = item.match.startsWith("/") && pathname.startsWith(item.match);
               return <Link key={item.href} href={item.href} className={active ? "is-active" : ""} onClick={closeMenu}><span>0{index + 1}</span>{item.label}</Link>;
             })}
+            <p className="mobile-nav-note">Doğal ürünleri keşfedin, merak ettiklerinizi doğrudan Vera&apos;ya sorun.</p>
             <a className="mobile-nav-action" href={infoUrl} target="_blank" rel="noreferrer" onClick={closeMenu}>
               WhatsApp&apos;tan bilgi al <ArrowUpRight size={18} />
             </a>

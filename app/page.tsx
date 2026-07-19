@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { GalleryBackdrop } from "@/components/GalleryBackdrop";
+import { HeroGallery } from "@/components/HeroGallery";
 import { ProductCard } from "@/components/ProductCard";
 import { getGalleryImages } from "@/lib/gallery";
 import { getProducts } from "@/lib/products";
@@ -10,12 +11,15 @@ export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const [products, galleryImages] = await Promise.all([getProducts(), getGalleryImages()]);
+  const heroImages = galleryImages.length > 0
+    ? galleryImages
+    : [{ id: 0, image: "/brand/kus-yuvasi.jpg", caption: "Kuş Yuvası" }];
   const location = "Ankara, Türkiye";
   const announcementChannel = "https://whatsapp.com/channel/0029VbCca52GzzKVGDNaAD3P";
 
   return (
     <main className="storefront-main">
-      <GalleryBackdrop images={galleryImages.length > 0 ? galleryImages.map((item) => item.image) : ["/brand/kus-yuvasi.jpg"]} />
+      <GalleryBackdrop images={heroImages.map((item) => item.image)} />
       <section className="hero">
         <div className="container hero-shell">
           <div className="hero-copy">
@@ -29,10 +33,7 @@ export default async function Home() {
             </div>
             <div className="hero-proof"><span><b>01</b>Doğal seçim</span><span><b>02</b>Doğrudan iletişim</span><span><b>03</b>Samimi sofra</span></div>
           </div>
-          <div className="hero-media">
-            <Image className="hero-image" src="/brand/kus-yuvasi.jpg" alt="Kuş Yuvası köyü ve doğası" fill sizes="(max-width: 760px) 100vw, 1200px" priority />
-            <div className="hero-image-caption"><span>Kuş Yuvası</span><p>Ürünün hikâyesi yetiştiği yerde başlar.</p><a href="/galeri" aria-label="Galeriyi gör"><ArrowUpRight size={19} /></a></div>
-          </div>
+          <HeroGallery images={heroImages} />
         </div>
       </section>
 
