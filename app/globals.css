@@ -285,16 +285,26 @@ section[id] { scroll-margin-top: 96px; }
   .product-bottom .button { min-width: 0; min-height: 44px; flex: 1; padding-inline: 8px; }
   .product-detail-link { display: none; }
   .compact-info-card { width: min(100% - 24px,1240px); grid-template-columns: 1fr; }
-  .compact-info-card article { padding: 36px 3px 34px; }
+  .compact-info-card article { padding: 24px 3px 22px; }
   .compact-info-card article + article, .compact-info-card .compact-contact { grid-column: auto; border-top: 1px solid var(--line-light); border-left: 0; }
-  .compact-info-card h2 { font-size: 2rem; }
-  .compact-info-card h3 { font-size: 1.6rem; }
+  .compact-info-card h2 { max-width: 16ch; font-size: 1.65rem; }
+  .compact-info-card h3 { font-size: 1.3rem; }
+  .compact-info-card p { margin-top: 10px; font-size: .72rem; line-height: 1.55; }
+  .compact-info-card .info-number { top: 15px; right: 2px; }
+  .compact-info-card .text-link { margin-top: 8px; }
+  .compact-steps ol { gap: 5px; margin-top: 10px; }
+  .compact-steps li { min-height: 40px; gap: 10px; }
+  .compact-steps li b { width: 30px; height: 30px; flex-basis: 30px; }
   .compact-contact { background: transparent; }
-  .contact-main-button { width: 100%; min-height: 50px; }
-  .footer { padding-top: 38px; }
-  .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px 20px; padding-bottom: 30px; }
-  .footer-signature { grid-column: 1 / -1; }
-  .footer-bottom { gap: 10px; }
+  .contact-main-button { width: 100%; min-height: 48px; margin-top: 12px; }
+  .compact-contact-links { gap: 4px; margin-top: 9px; }
+  .footer { padding: 20px 0 14px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 0; padding-bottom: 16px; }
+  .footer-signature { grid-column: auto; gap: 12px; }
+  .footer-signature img { width: 50px; height: 50px; }
+  .footer-signature strong { font-size: 1.2rem; }
+  .footer-signature p, .footer nav, .footer-contact { display: none; }
+  .footer-bottom { align-items: center; gap: 8px; padding-top: 13px; font-size: .57rem; }
   .detail-page { padding: 25px 0 60px; }
   .back-link { margin-bottom: 10px; }
   .detail-grid { grid-template-columns: 1fr; gap: 27px; }
