@@ -1,11 +1,13 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
 type HeroImage = { id: number; image: string; caption: string | null };
+
+/* Gallery images are user-managed remote URLs from Vercel Blob. */
+/* eslint-disable @next/next/no-img-element */
 
 function imageTitle(item: HeroImage, index: number) {
   if (item.caption?.trim()) return item.caption.trim();
@@ -39,14 +41,12 @@ export function HeroGallery({ images }: { images: HeroImage[] }) {
     <div className="hero-media">
       <div className="hero-slides">
         {images.map((item, index) => (
-          <Image
+          <img
             key={item.id}
             className={`hero-image hero-slide${index === activeIndex ? " is-active" : ""}`}
             src={item.image}
             alt={imageTitle(item, index)}
-            fill
-            sizes="(max-width: 760px) 100vw, 1200px"
-            priority={index === 0}
+            loading={index === 0 ? "eager" : "lazy"}
           />
         ))}
       </div>
