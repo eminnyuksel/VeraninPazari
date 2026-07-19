@@ -66,13 +66,13 @@ h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; }
 .product-detail-link { padding: 0 4px; display: inline-flex; align-items: center; }
 
 .compact-info-section { position: relative; overflow: hidden; padding: 62px 0; background: #0a2d24; }
-.compact-info-section::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg,rgba(8,34,27,.92),rgba(8,34,27,.72)),url('/brand/kus-yuvasi.jpg') center 42%/cover; opacity: .68; }
+.compact-info-section::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg,rgba(4,29,22,.96),rgba(5,34,25,.86)),url('/brand/kus-yuvasi.jpg') center 42%/cover; opacity: .42; filter: saturate(.78) contrast(1.08); }
 .compact-info-section::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 82% 18%,rgba(214,183,112,.16),transparent 32%); pointer-events: none; }
-.compact-info-card { position: relative; z-index: 1; grid-template-columns: 1.1fr .95fr .95fr; overflow: hidden; border: 1px solid rgba(255,255,255,.14); border-radius: 24px; background: rgba(7,30,24,.58); box-shadow: var(--shadow-float); backdrop-filter: blur(16px); }
+.compact-info-card { position: relative; z-index: 1; grid-template-columns: 1.1fr .95fr .95fr; overflow: hidden; border: 1px solid rgba(230,193,116,.3); border-radius: 24px; background: rgba(5,31,24,.91); box-shadow: 0 28px 72px rgba(0,0,0,.28); backdrop-filter: blur(12px); }
 .compact-info-card article { min-height: 330px; padding: 38px clamp(28px,3vw,44px); border-color: rgba(255,255,255,.12); }
 .compact-info-card h2 { max-width: 420px; font-size: clamp(2rem,2.6vw,3.1rem); line-height: .99; letter-spacing: -.045em; }
 .compact-info-card h3 { font-size: clamp(1.55rem,2vw,2.1rem); }
-.compact-info-card p, .compact-steps li span { color: rgba(255,255,255,.68); }
+.compact-info-card p, .compact-steps li span { color: rgba(255,255,255,.88); }
 .compact-steps li b { border-color: rgba(232,211,166,.4); color: #e8d3a6; }
 .contact-main-button { background: #e8d3a6; color: #14362d; }
 .contact-main-button:hover { background: #f4e5c2; }
@@ -177,12 +177,14 @@ h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; }
   .button-small { min-height: 40px; padding-inline: 10px; font-size: .65rem; }
   .product-detail-link { min-height: 40px; font-size: .65rem; }
   .compact-info-section { padding: 28px 0; }
-  .compact-info-section::before { background: linear-gradient(0deg,rgba(8,34,27,.94),rgba(8,34,27,.72)),url('/brand/kus-yuvasi.jpg') center/cover; }
-  .compact-info-card { width: calc(100% - 24px); grid-template-columns: 1fr; border-radius: 18px; }
+  .compact-info-section::before { background: linear-gradient(0deg,rgba(3,27,20,.98),rgba(5,37,28,.9)),url('/brand/kus-yuvasi.jpg') center/cover; opacity: .35; }
+  .compact-info-card { width: calc(100% - 20px); grid-template-columns: 1fr; border-radius: 18px; background: rgba(4,29,22,.95); backdrop-filter: none; }
   .compact-info-card article, .compact-info-card article:first-child { grid-column: auto; min-height: 0; padding: 24px 20px; }
   .compact-info-card h2 { font-size: 2rem; }
   .compact-info-card h3 { font-size: 1.5rem; }
-  .compact-info-card p { font-size: .77rem; }
+  .compact-info-card p { color: rgba(255,255,255,.94); font-size: .81rem; line-height: 1.65; }
+  .compact-steps li span { color: rgba(255,255,255,.92); font-size: .75rem; }
+  .compact-contact-links { color: rgba(255,255,255,.9); font-size: .72rem; }
   .detail-page { padding: 24px 0 calc(92px + env(safe-area-inset-bottom)); }
   .detail-grid { grid-template-columns: 1fr; gap: 27px; }
   .detail-main-image { border-radius: 14px; }
@@ -246,16 +248,22 @@ h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; }
 .product-detail-link { color: #174f3e; font-weight: 850; text-decoration-thickness: 1px; text-underline-offset: 4px; }
 .product-detail-link:hover { color: #a94031; }
 .stock-label { color: #704c45; }
-.compact-info-card p, .compact-steps li span { color: rgba(255,255,255,.79); }
-.compact-contact-links { color: rgba(255,255,255,.74); }
+.compact-info-card p, .compact-steps li span { color: rgba(255,255,255,.9); }
+.compact-info-card h2, .compact-info-card h3, .compact-steps li strong { color: #fffef9; }
+.compact-info-card .eyebrow.light { color: #f0d28d; }
+.compact-info-card .info-number { color: rgba(240,210,141,.7); }
+.compact-story, .compact-steps { background: rgba(255,255,255,.025); }
+.compact-contact { background: rgba(255,255,255,.09); }
+.compact-contact-links { color: rgba(255,255,255,.86); }
 .text-link.light-link, .whatsapp-channel-link { color: #f1d58f; }
 .contact-main-button { box-shadow: 0 12px 26px rgba(0,0,0,.16); }
 .contact-main-button:hover { border-color: #f4e5c2; background: #fff4da; color: #09271f; transform: translateY(-2px); }
-.footer { background: #071f18; }
+.footer { border-top: 1px solid rgba(223,182,108,.38); background: #041b15; }
+.footer-signature strong { color: #fffef9; }
 .footer-signature p, .footer-contact p { color: rgba(255,255,255,.7); }
 .footer nav a { min-height: 40px; display: inline-flex; align-items: center; color: rgba(255,255,255,.82); }
 .footer nav > span, .footer-contact > span { color: #c1d2c6; }
-.footer-bottom { color: rgba(255,255,255,.62); }
+.footer-bottom { border-top-color: rgba(255,255,255,.2); color: rgba(255,255,255,.78); }
 .footer-contact a { color: #f0d38e; }
 .storefront-empty, .empty-state { border: 1px solid rgba(16,55,44,.18); background: #fffdf7; color: #14372c; }
 .storefront-empty p, .empty-state p { color: #4a5e55; }
@@ -342,7 +350,9 @@ h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; }
   .catalog-heading > p { color: #40564c; font-size: .81rem; }
   .product-body p { color: #42574d; font-size: .76rem; }
   .product-detail-link { min-width: 54px; justify-content: flex-end; }
-  .footer-bottom { color: rgba(255,255,255,.7); }
+  .compact-info-card p, .compact-steps li span { color: rgba(255,255,255,.94); }
+  .compact-contact-links { color: rgba(255,255,255,.92); }
+  .footer-bottom { color: rgba(255,255,255,.84); font-size: .62rem; }
   .admin-shell main { padding-inline: 14px; }
   .admin-panel { border-radius: 11px; box-shadow: 0 7px 20px rgba(9,39,31,.06); }
   .admin-input { min-height: 48px; font-size: 16px; }
