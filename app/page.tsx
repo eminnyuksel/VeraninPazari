@@ -39,7 +39,7 @@ export default async function Home() {
       <section className="section catalog-section catalog-first" id="urunler">
         <div className="container">
           <div className="section-heading catalog-heading">
-            <div><span className="section-number">01 / Ürünler</span><span className="eyebrow">Pazardaki güzellikler</span><h2>Vera&apos;nın<br /><em>seçtikleri</em></h2></div>
+            <div><span className="section-number">01 / Ürünler</span><span className="eyebrow">Pazardaki güzellikler</span><h2>Vera&apos;nın <em>seçtikleri</em></h2></div>
             <p>Az ama iyi. Mevsiminde, güvenilir ve sofrada gerçekten fark yaratan ürünler.</p>
           </div>
           {products.length > 0 ? (
