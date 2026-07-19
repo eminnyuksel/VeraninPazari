@@ -62,5 +62,5 @@ export function ProductForm({ action, categories, product }: { action: (state: A
   );
 }
 
-function Field({ label, error, children, className = "" }: { label: string; error?: string; children: React.ReactNode; className?: string }) { return <div className={className}><label className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200">{label}</label>{children}{error && <p className="mt-1 text-xs text-red-600">{error}</p>}</div>; }
+function Field({ label, error, children, className = "" }: { label: string; error?: string; children: React.ReactNode; className?: string }) { return <div className={className}><label className="block"><span className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200">{label}</span>{children}</label>{error && <p className="mt-1 text-xs text-red-600">{error}</p>}</div>; }
 function Switch({ name, label, checked, onChange }: { name: string; label: string; checked: boolean; onChange: (checked: boolean) => void }) { return <label className="flex cursor-pointer items-center justify-between rounded-xl border border-slate-200 px-4 py-3 text-sm font-medium dark:border-slate-700"><span>{label}</span><input name={name} type="checkbox" checked={checked} onChange={(event) => onChange(event.target.checked)} className="size-4 accent-emerald-700" /></label>; }

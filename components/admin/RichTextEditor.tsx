@@ -27,7 +27,7 @@ export function RichTextEditor({ initialValue, onChange }: { initialValue: strin
   return (
     <div className="overflow-hidden rounded-xl border border-slate-200 bg-white focus-within:border-emerald-600 focus-within:ring-4 focus-within:ring-emerald-600/10 dark:border-slate-700 dark:bg-slate-900">
       <div className="flex gap-1 border-b border-slate-200 p-2 dark:border-slate-700">{commands.map(({ command, label, icon: Icon }) => <button key={command} type="button" title={label} onClick={() => execute(command)} className="grid size-8 place-items-center rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800"><Icon size={16} /></button>)}</div>
-      <div ref={editorRef} contentEditable suppressContentEditableWarning onInput={(event) => onChange(event.currentTarget.innerHTML)} className="min-h-44 px-4 py-3 text-sm leading-7 outline-none [&_ol]:list-decimal [&_ol]:pl-5 [&_ul]:list-disc [&_ul]:pl-5" />
+      <div ref={editorRef} role="textbox" aria-label="Açıklama" aria-multiline="true" contentEditable suppressContentEditableWarning onInput={(event) => onChange(event.currentTarget.innerHTML)} className="min-h-44 px-4 py-3 text-sm leading-7 outline-none [&_ol]:list-decimal [&_ol]:pl-5 [&_ul]:list-disc [&_ul]:pl-5" />
     </div>
   );
 }
