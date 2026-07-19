@@ -8,7 +8,7 @@ import { requireAdmin } from "@/lib/admin-auth";
 import type { ActionState } from "@/lib/validation";
 
 const acceptedTypes = new Set(["image/jpeg", "image/png", "image/webp", "image/avif"]);
-const maxImageSize = 8 * 1024 * 1024;
+const maxImageSize = 4 * 1024 * 1024;
 
 function parseGalleryForm(formData: FormData) {
   const image = String(formData.get("image") ?? "").trim();
@@ -34,12 +34,18 @@ function revalidateGallery() {
 export async function uploadGalleryImage(formData: FormData) {
   await requireAdmin();
   const file = formData.get("file");
-  if (!(file instanceof File) || file.size === 0) throw new Error("Yüklenecek görsel bulunamadı.");
-  if (!acceptedTypes.has(file.type)) throw new Error("Yalnızca JPG, PNG, WebP veya AVIF yüklenebilir.");
-  if (file.size > maxImageSize) throw new Error("Görsel boyutu en fazla 8 MB olabilir.");
+  if (!(file instanceof File) || file.size === 0) return { success: false as const, message: "Yüklenecek görsel bulunamadı." };
+  if (!acceptedTypes.has(file.type)) return { success: false as const, message: "Yalnızca JPG, PNG, WebP veya AVIF yüklenebilir." };
+  if (file.size > maxImageSize) return { success: false as const, message: "Görsel boyutu en fazla 4 MB olabilir." };
+  if (!process.env.BLOB_READ_WRITE_TOKEN) return { success: false as const, message: "Görsel depolama bağlantısı yapılandırılmamış." };
   const safeName = file.name.toLocaleLowerCase("tr-TR").replace(/[^a-z0-9._-]+/g, "-");
-  const blob = await put(`gallery/${Date.now()}-${safeName}`, file, { access: "public", addRandomSuffix: true });
-  return { url: blob.url };
+  try {
+    const blob = await put(`gallery/${Date.now()}-${safeName}`, file, { access: "public", addRandomSuffix: true });
+    return { success: true as const, url: blob.url };
+  } catch (error) {
+    console.error("Gallery image upload failed", error);
+    return { success: false as const, message: "Görsel yüklenemedi. Lütfen tekrar deneyin." };
+  }
 }
 
 export async function createGalleryImage(_: ActionState, formData: FormData): Promise<ActionState> {

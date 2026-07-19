@@ -76,6 +76,6 @@ Admin işlemleri doğrudan PostgreSQL'e yazılır ve ilgili sayfaları yeniden d
 
 - `.env`, Neon bağlantıları, `AUTH_SECRET` ve Blob token'ı GitHub'a gönderilmemelidir.
 - Admin işlemleri sunucu tarafında tekrar kimlik doğrulaması yapar.
-- Görsel yüklemeleri MIME türü ve 5 MB dosya sınırıyla doğrulanır.
+- Görsel yüklemeleri MIME türü ve 4 MB dosya sınırıyla hem tarayıcıda hem sunucuda doğrulanır.
 - Ürün açıklamaları kaydedilmeden önce güvenli HTML etiketleriyle sınırlandırılır.
 - Admin parolası en az 8 karakter olmalı, tahmin edilmesi zor seçilmeli ve düzenli aralıklarla yenilenmelidir.
