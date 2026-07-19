@@ -58,10 +58,10 @@ h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; }
 .product-grid { grid-template-columns: repeat(2,minmax(0,1fr)); column-gap: 30px; row-gap: 76px; border: 0; background: transparent; }
 .product-card { min-width: 0; height: auto; min-height: 0; display: flex; flex-direction: column; padding: 0 !important; border: 0 !important; background: transparent; box-shadow: none; }
 .product-card:hover { transform: none; }
-.product-image-wrap { position: relative; min-width: 0; min-height: 0; width: 100%; height: auto; aspect-ratio: 2.15; border-radius: 19px; background: #d9dfd6; box-shadow: 0 13px 36px rgba(9,39,31,.1); }
+.product-image-wrap { position: relative; min-width: 0; min-height: 0; width: 100%; height: auto; aspect-ratio: 2.15; border-radius: 19px; background: linear-gradient(145deg,#e9e5db,#dce3da); box-shadow: 0 13px 36px rgba(9,39,31,.1); }
 .product-image-wrap::after { content: ""; position: absolute; inset: 0; border: 1px solid rgba(255,255,255,.52); border-radius: inherit; pointer-events: none; }
-.product-image { transition: transform .65s var(--ease),filter .4s var(--ease); }
-.product-card:hover .product-image { transform: scale(1.035); filter: saturate(1.05); }
+.product-image { object-fit: contain; object-position: center; transition: filter .4s var(--ease); }
+.product-card:hover .product-image { transform: none; filter: saturate(1.05); }
 .product-index { top: 14px; left: 14px; min-width: 38px; height: 30px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.54); border-radius: 99px; background: rgba(9,39,31,.64); color: white; backdrop-filter: blur(9px); }
 .product-image-action { position: absolute; right: 14px; bottom: 14px; z-index: 2; min-height: 38px; display: inline-flex; align-items: center; gap: 8px; padding: 0 12px; border: 1px solid rgba(255,255,255,.45); border-radius: 8px; background: rgba(250,248,241,.88); color: var(--forest-900); font-size: .68rem; font-weight: 800; letter-spacing: .04em; backdrop-filter: blur(10px); transform: translateY(5px); opacity: 0; transition: opacity .24s var(--ease),transform .24s var(--ease); }
 .product-card:hover .product-image-action, .product-image-wrap:focus-visible .product-image-action { opacity: 1; transform: none; }
