@@ -29,7 +29,7 @@ export default async function AdminDashboardPage() {
     <>
       <PageHeader eyebrow="Genel bakış" title="Dashboard" description="Kataloğun güncel durumunu ve son değişiklikleri tek ekrandan takip edin." actionHref="/admin/products/new" actionLabel="Yeni ürün" />
       <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
-        {cards.map(({ label, value, icon: Icon, color }) => <article key={label} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900"><div className={`mb-5 grid size-10 place-items-center rounded-xl ${color}`}><Icon size={19} /></div><strong className="font-serif text-3xl">{value}</strong><p className="mt-1 text-xs font-medium text-slate-500">{label}</p></article>)}
+        {cards.map(({ label, value, icon: Icon, color }, index) => <article key={label} className="admin-panel relative overflow-hidden p-5"><span className="absolute right-4 top-4 text-[10px] font-bold text-slate-300">0{index + 1}</span><div className={`mb-7 grid size-10 place-items-center rounded-[7px] ${color}`}><Icon size={19} /></div><strong className="font-serif text-4xl font-medium">{value}</strong><p className="mt-1 text-xs font-medium text-slate-500">{label}</p></article>)}
       </section>
       <section className="mt-8">
         <div className="mb-4 flex items-center justify-between"><div><h2 className="font-serif text-2xl font-semibold">Son güncellenen ürünler</h2><p className="text-sm text-slate-500">Katalogdaki en son altı değişiklik</p></div><Link href="/admin/products" className="text-sm font-semibold text-emerald-700 dark:text-emerald-400">Tümünü gör →</Link></div>

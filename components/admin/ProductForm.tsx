@@ -42,20 +42,20 @@ export function ProductForm({ action, categories, product }: { action: (state: A
       <input type="hidden" name="removedImages" value={JSON.stringify(removedImages)} />
       <div className="grid gap-6 xl:grid-cols-[minmax(0,1.4fr)_minmax(300px,.6fr)]">
         <div className="space-y-6">
-          <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-6"><h2 className="mb-5 font-serif text-xl font-semibold">Ürün bilgileri</h2><div className="grid gap-5 sm:grid-cols-2">
+          <section className="admin-panel p-5 sm:p-6"><h2 className="mb-5 font-serif text-xl font-medium">Ürün bilgileri</h2><div className="grid gap-5 sm:grid-cols-2">
             <Field label="Ürün Adı" error={fieldError("name")} className="sm:col-span-2"><input name="name" value={name} onChange={(event) => { const next = event.target.value; setName(next); if (!slugTouched) setSlug(slugify(next)); }} required className="admin-input" /></Field>
             <Field label="URL Slug" error={fieldError("slug")}><input name="slug" value={slug} onChange={(event) => { setSlugTouched(true); setSlug(slugify(event.target.value)); }} required className="admin-input" /></Field>
             <Field label="Kategori" error={fieldError("categoryId")}><select name="categoryId" value={categoryId} onChange={(event) => setCategoryId(event.target.value)} required className="admin-input"><option value="" disabled>Kategori seçin</option>{categories.map((category) => <option key={category.id} value={category.id}>{category.name}</option>)}</select></Field>
             <div className="sm:col-span-2"><label className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200">Açıklama</label><RichTextEditor initialValue={initial.description} onChange={setDescription} />{fieldError("description") && <p className="mt-1 text-xs text-red-600">{fieldError("description")}</p>}</div>
           </div></section>
-          <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-6"><h2 className="mb-5 font-serif text-xl font-semibold">Stok ve sıralama</h2><div className="grid gap-5 sm:grid-cols-2">
+          <section className="admin-panel p-5 sm:p-6"><h2 className="mb-5 font-serif text-xl font-medium">Stok ve sıralama</h2><div className="grid gap-5 sm:grid-cols-2">
             <Field label="Birim" error={fieldError("unit")}><input name="unit" value={unit} onChange={(event) => setUnit(event.target.value)} required className="admin-input" placeholder="kg, adet, paket" /></Field>
             <Field label="Ürün Sırası" error={fieldError("sortOrder")}><input name="sortOrder" type="number" min="0" value={sortOrder} onChange={(event) => setSortOrder(event.target.value)} required className="admin-input" /></Field>
           </div><div className="mt-5 grid gap-3 sm:grid-cols-3"><Switch name="inStock" label="Stokta" checked={inStock} onChange={setInStock} /><Switch name="featured" label="Öne çıkan ürün" checked={featured} onChange={setFeatured} /><Switch name="isActive" label="Aktif / yayında" checked={isActive} onChange={setIsActive} /></div></section>
         </div>
         <div className="space-y-6">
-          <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900"><ImageUploader label="Ana ürün görseli" value={image} onChange={setImage} max={1} onRemove={markRemoved} />{fieldError("image") && <p className="mt-1 text-xs text-red-600">{fieldError("image")}</p>}<div className="mt-6"><ImageUploader label="Galeri görselleri" value={gallery} onChange={setGallery} multiple max={12} onRemove={markRemoved} /></div></section>
-          <div className="sticky bottom-4 flex items-center justify-end gap-3 rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-lg backdrop-blur dark:border-slate-800 dark:bg-slate-900/90"><SubmitButton label={product ? "Değişiklikleri kaydet" : "Ürünü kaydet"} /></div>
+          <section className="admin-panel p-5"><ImageUploader label="Ana ürün görseli" value={image} onChange={setImage} max={1} onRemove={markRemoved} />{fieldError("image") && <p className="mt-1 text-xs text-red-600">{fieldError("image")}</p>}<div className="mt-6"><ImageUploader label="Galeri görselleri" value={gallery} onChange={setGallery} multiple max={12} onRemove={markRemoved} /></div></section>
+          <div className="sticky bottom-4 flex items-center justify-end gap-3 rounded-[10px] border border-[#142820]/15 bg-[#fffdf7]/92 p-4 shadow-lg backdrop-blur dark:border-slate-800 dark:bg-slate-900/90"><SubmitButton label={product ? "Değişiklikleri kaydet" : "Ürünü kaydet"} /></div>
         </div>
       </div>
     </form>
