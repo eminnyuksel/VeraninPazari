@@ -270,7 +270,7 @@ h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; }
 .text-link.light-link, .whatsapp-channel-link { color: #f1d58f; }
 .contact-main-button { box-shadow: 0 12px 26px rgba(0,0,0,.16); }
 .contact-main-button:hover { border-color: #f4e5c2; background: #fff4da; color: #09271f; transform: translateY(-2px); }
-.footer { border-top: 1px solid rgba(223,182,108,.38); background: #041b15; }
+.footer { position: relative; z-index: 1; border-top: 1px solid rgba(223,182,108,.38); background: #041b15; }
 .footer-signature strong { color: #fffef9; }
 .footer-signature p, .footer-contact p { color: rgba(255,255,255,.7); }
 .footer nav a { min-height: 40px; display: inline-flex; align-items: center; color: rgba(255,255,255,.82); }
