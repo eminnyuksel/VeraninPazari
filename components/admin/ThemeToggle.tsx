@@ -9,14 +9,14 @@ export function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
-  if (!mounted) return <span className="size-9" aria-hidden />;
+  if (!mounted) return <span className="size-11" aria-hidden />;
 
   const dark = resolvedTheme === "dark";
   return (
     <button
       type="button"
       onClick={() => setTheme(dark ? "light" : "dark")}
-      className="grid size-9 place-items-center rounded-xl border border-slate-200 bg-white text-slate-600 transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300"
+      className="grid size-11 place-items-center rounded-xl border border-slate-200 bg-white text-slate-600 transition hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300"
       aria-label={dark ? "Açık temaya geç" : "Koyu temaya geç"}
     >
       {dark ? <Sun size={17} /> : <Moon size={17} />}
