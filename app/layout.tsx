@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./editorial.css";
 import { AppProviders } from "@/components/admin/AppProviders";
 import { SiteChrome } from "@/components/SiteChrome";
 
