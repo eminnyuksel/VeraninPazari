@@ -19,7 +19,7 @@ export default async function Home() {
       <section className="hero">
         <div className="container hero-shell">
           <div className="hero-copy">
-            <div className="hero-brand-row"><Image className="hero-copy-logo" src="/brand/vera-user-logo.png" alt="Vera'nın Pazarı" width={88} height={88} /><span>Doğal ürünler<br />Ankara&apos;dan sofranıza</span></div>
+            <div className="hero-brand-row"><Image className="hero-copy-logo" src="/brand/vera-user-logo.png" alt="Vera'nın Pazarı" width={88} height={88} /><span>Doğal ürünler<br />Doğadan sofranıza</span></div>
             <span className="eyebrow">Vera&apos;nın özenle seçtikleri</span>
             <h1>İyi ürün,<br /><em>güzel sofra.</em></h1>
             <p>Doğal, güvenilir ve lezzetli ürünleri Vera&apos;nın merakıyla buluyor; sofranıza samimiyetle getiriyoruz.</p>
