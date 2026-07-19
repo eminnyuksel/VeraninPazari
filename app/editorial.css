@@ -289,6 +289,7 @@ h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; }
 .admin-upload-zone { border-color: #8ca296; background: #f3f7f3; color: #173d31; }
 .admin-upload-zone:hover { border-color: #16734f; background: #eaf3ec; }
 .admin-upload-zone small { color: #52675c; }
+.admin-form-actions { border-color: #bdccc3; background: rgba(255,254,249,.95); box-shadow: 0 14px 34px rgba(9,39,31,.13); }
 .admin-shell table thead { background: #eaf0ea; color: #28493c; }
 .admin-shell table tbody tr { border-color: #d5ded8; }
 .admin-shell table tbody tr:hover { background: #f2f6f2; }
@@ -312,6 +313,7 @@ h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; }
 .dark .admin-upload-zone { border-color: #58786b; background: #0b251e; color: #f7f4ec; }
 .dark .admin-upload-zone:hover { border-color: #e1bd70; background: #123128; }
 .dark .admin-upload-zone small { color: #aebfb6; }
+.dark .admin-form-actions { border-color: #45675a; background: rgba(13,42,34,.96); box-shadow: 0 16px 38px rgba(0,0,0,.28); }
 .dark .admin-shell table thead { background: #17362d; color: #e6eee8; }
 .dark .admin-shell table tbody tr { border-color: #36564a; }
 .dark .admin-shell table tbody tr:hover { background: #15342b; }
@@ -338,7 +340,7 @@ h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; }
   .hero-copy > p { color: rgba(255,255,255,.9); font-size: .79rem; }
   .hero-copy .eyebrow { color: #ffe6a9; }
   .catalog-heading > p { color: #40564c; font-size: .81rem; }
-  .product-body p { color: #42574d; font-size: .72rem; }
+  .product-body p { color: #42574d; font-size: .76rem; }
   .product-detail-link { min-width: 54px; justify-content: flex-end; }
   .footer-bottom { color: rgba(255,255,255,.7); }
   .admin-shell main { padding-inline: 14px; }

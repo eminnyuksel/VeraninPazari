@@ -55,7 +55,7 @@ export function ProductForm({ action, categories, product }: { action: (state: A
         </div>
         <div className="space-y-6">
           <section className="admin-panel p-5"><ImageUploader label="Ana ürün görseli" value={image} onChange={setImage} max={1} onRemove={markRemoved} />{fieldError("image") && <p className="mt-1 text-xs text-red-600">{fieldError("image")}</p>}<div className="mt-6"><ImageUploader label="Galeri görselleri" value={gallery} onChange={setGallery} multiple max={12} onRemove={markRemoved} /></div></section>
-          <div className="sticky bottom-4 flex items-center justify-end gap-3 rounded-[10px] border border-[#142820]/15 bg-[#fffdf7]/92 p-4 shadow-lg backdrop-blur dark:border-slate-800 dark:bg-slate-900/90"><SubmitButton label={product ? "Değişiklikleri kaydet" : "Ürünü kaydet"} /></div>
+          <div className="admin-form-actions sticky bottom-4 flex items-center justify-end gap-3 rounded-[10px] border border-[#142820]/15 bg-[#fffdf7]/92 p-4 shadow-lg backdrop-blur dark:border-slate-800 dark:bg-slate-900/90"><SubmitButton label={product ? "Değişiklikleri kaydet" : "Ürünü kaydet"} /></div>
         </div>
       </div>
     </form>
