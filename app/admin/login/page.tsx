@@ -9,7 +9,7 @@ export default async function AdminLoginPage() {
   if (session?.user) redirect("/admin");
 
   return (
-    <main className="grid min-h-screen bg-[#0b2b22] text-white lg:grid-cols-[1.1fr_.9fr]">
+    <main className="admin-login grid min-h-screen bg-[#0b2b22] text-white lg:grid-cols-[1.1fr_.9fr]">
       <section className="relative hidden min-h-screen overflow-hidden lg:block">
         <Image src="/brand/kus-yuvasi.jpg" alt="Kuş Yuvası doğası" fill className="object-cover opacity-75" priority />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0b2b22]/30 to-[#0b2b22]" />
