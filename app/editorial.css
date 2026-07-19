@@ -330,7 +330,7 @@ h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; }
   .nav-links { border-color: rgba(255,255,255,.25); background: #082e24; box-shadow: 0 24px 70px rgba(2,20,15,.34); }
   .nav-links > a:not(.mobile-nav-action) { color: #fff; }
   .nav-links > a.is-active:not(.mobile-nav-action) { border-color: #ddb869; color: #f5d98f; }
-  .mobile-nav-action { background: #c5533f; color: #fff; }
+  .nav-links > a.mobile-nav-action { background: #c5533f; color: #fff; }
   .admin-mobile-nav { scrollbar-width: none; }
   .admin-mobile-nav a { color: #365448; }
   .dark .admin-mobile-nav a { color: #d6e0da; }
