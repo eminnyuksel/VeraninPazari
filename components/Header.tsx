@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
@@ -40,6 +41,7 @@ export function Header() {
       <header className={`site-header${menuOpen ? " menu-is-open" : ""}`}>
         <div className="container nav-wrap">
           <Link href="/" className="site-brand" aria-label="Vera'nın Pazarı ana sayfa" onClick={closeMenu}>
+            <Image src="/brand/vera-user-logo.png" alt="" width={52} height={52} priority />
             <span><strong>Vera&apos;nın</strong><small>Pazarı</small></span>
           </Link>
 
