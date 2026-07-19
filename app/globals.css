@@ -468,7 +468,7 @@ section[id] { scroll-margin-top: 92px; }
   .nav-links a { min-height: 44px; display: inline-flex; align-items: center; }
   .catalog-first .product-bottom .button { min-height: 44px; }
   .detail-grid { gap: 38px; }
-  .detail-image img { height: clamp(420px, 62vw, 540px); }
+  .detail-image img { height: auto; aspect-ratio: 4 / 3; }
   .public-gallery-grid img { height: auto; aspect-ratio: 4 / 3; }
 }
 
