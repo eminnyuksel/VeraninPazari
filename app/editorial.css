@@ -67,12 +67,19 @@ h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; }
 .product-image-action { position: absolute; right: 14px; bottom: 14px; z-index: 2; min-height: 38px; display: inline-flex; align-items: center; gap: 8px; padding: 0 12px; border: 1px solid rgba(255,255,255,.45); border-radius: 8px; background: rgba(250,248,241,.88); color: var(--forest-900); font-size: .68rem; font-weight: 800; letter-spacing: .04em; backdrop-filter: blur(10px); transform: translateY(5px); opacity: 0; transition: opacity .24s var(--ease),transform .24s var(--ease); }
 .product-card:hover .product-image-action, .product-image-wrap:focus-visible .product-image-action { opacity: 1; transform: none; }
 .product-body { min-width: 0; min-height: 0; padding: 20px 4px 0; gap: 13px; }
-.product-heading-row { gap: 12px; }
+.product-heading-row { align-items: flex-start; gap: 12px; }
+.product-status-stack { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
 .category-pill { border-radius: 5px; background: rgba(23,75,59,.08); }
 .stock-label { display: inline-flex; align-items: center; gap: 7px; color: #7b5e58; font-size: .64rem; font-weight: 800; letter-spacing: .055em; }
 .stock-label::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #a76e63; }
 .stock-label.is-available { color: var(--forest-700); }
 .stock-label.is-available::before { background: #4a8a69; box-shadow: 0 0 0 4px rgba(74,138,105,.12); }
+.product-assurances { display: flex; align-items: flex-start; gap: 10px; color: var(--forest-800); }
+.assurance-mark { min-width: 50px; display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; }
+.assurance-mark i { width: 29px; height: 29px; display: grid; place-items: center; border: 1px solid rgba(24,80,62,.34); border-radius: 50%; background: rgba(230,238,226,.8); color: var(--forest-700); box-shadow: inset 0 0 0 3px rgba(255,255,255,.58); }
+.assurance-mark > span { display: flex; flex-direction: column; align-items: center; line-height: 1.05; }
+.assurance-mark strong { color: var(--forest-800); font-size: .55rem; font-weight: 900; letter-spacing: .015em; }
+.assurance-mark small { margin-top: 2px; color: #61756a; font-size: .5rem; font-weight: 750; }
 .product-body h3 { font-size: clamp(1.72rem,2.1vw,2.35rem); letter-spacing: -.04em; }
 .product-body p { max-width: 54ch; min-height: 3.2em; display: -webkit-box; overflow: hidden; color: #596860; line-height: 1.62; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .product-bottom { margin-top: 6px; padding-top: 15px; border-top: 1px solid rgba(16,55,44,.13); }
@@ -194,6 +201,14 @@ h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; }
   .category-pill { padding: 5px 7px; font-size: .55rem; }
   .stock-label { font-size: .55rem; letter-spacing: .025em; }
   .stock-label::before { width: 5px; height: 5px; }
+  .product-status-stack { gap: 5px; }
+  .product-assurances { gap: 6px; }
+  .assurance-mark { min-width: 0; flex-direction: row; gap: 3px; text-align: left; }
+  .assurance-mark > span { align-items: flex-start; }
+  .assurance-mark i { width: 23px; height: 23px; }
+  .assurance-mark i svg { width: 13px; height: 13px; }
+  .assurance-mark strong { font-size: .44rem; }
+  .assurance-mark small { margin-top: 1px; font-size: .42rem; }
   .product-body h3 { font-size: clamp(1.35rem,6vw,1.65rem); line-height: .98; }
   .product-body p { min-height: 0; font-size: .69rem; line-height: 1.45; }
   .product-bottom { margin-top: auto; padding-top: 8px; }
@@ -242,6 +257,12 @@ h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; }
   .product-card { grid-template-columns: 112px minmax(0,1fr); gap: 11px; }
   .product-image-wrap, .product-body { height: 151px; min-height: 151px; }
   .stock-label { display: none; }
+  .product-status-stack { gap: 0; }
+  .product-assurances { gap: 4px; }
+  .assurance-mark { min-width: 0; }
+  .assurance-mark i { width: 21px; height: 21px; }
+  .assurance-mark strong { font-size: .4rem; }
+  .assurance-mark small { font-size: .38rem; }
 }
 
 @media (hover: none) { .product-image-action { opacity: 1; transform: none; } }

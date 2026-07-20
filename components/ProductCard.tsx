@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, MessageCircle } from "lucide-react";
+import { ArrowUpRight, Leaf, MessageCircle, Sprout } from "lucide-react";
 import type { Product } from "@/lib/types";
 import { productInfoMessage, whatsappUrl } from "@/lib/format";
 
@@ -18,7 +18,22 @@ export function ProductCard({ product, index }: { product: Product; index?: numb
         <span className="product-index">{String((index ?? 0) + 1).padStart(2, "0")}</span>
       </Link>
       <div className="product-body">
-        <div className="product-heading-row"><span className="category-pill">{product.category.name}</span><span className={`stock-label ${product.inStock ? "is-available" : ""}`}>{product.inStock ? "Bilgiye açık" : "Şu an mevcut değil"}</span></div>
+        <div className="product-heading-row">
+          <span className="category-pill">{product.category.name}</span>
+          <div className="product-status-stack">
+            <span className={`stock-label ${product.inStock ? "is-available" : ""}`}>{product.inStock ? "Bilgiye açık" : "Şu an mevcut değil"}</span>
+            <div className="product-assurances" aria-label="Ürün özellikleri">
+              <span className="assurance-mark">
+                <i><Leaf size={17} strokeWidth={2} aria-hidden="true" /></i>
+                <span><strong>%100</strong><small>Doğal</small></span>
+              </span>
+              <span className="assurance-mark">
+                <i><Sprout size={17} strokeWidth={2} aria-hidden="true" /></i>
+                <span><strong>Katkısız</strong><small>ve Saf</small></span>
+              </span>
+            </div>
+          </div>
+        </div>
         <div>
           <h3><Link href={`/urunler/${product.slug}`}>{product.name}</Link></h3>
           <p>{summary}</p>
