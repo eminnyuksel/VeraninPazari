@@ -77,6 +77,7 @@ h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; }
 .product-assurances { display: flex; align-items: flex-start; gap: 10px; color: var(--forest-800); }
 .assurance-mark { min-width: 50px; display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; }
 .assurance-mark i { width: 29px; height: 29px; display: grid; place-items: center; border: 1px solid rgba(24,80,62,.34); border-radius: 50%; background: rgba(230,238,226,.8); color: var(--forest-700); box-shadow: inset 0 0 0 3px rgba(255,255,255,.58); }
+.assurance-mark i svg { fill: rgba(28,91,67,.12); }
 .assurance-mark > span { display: flex; flex-direction: column; align-items: center; line-height: 1.05; }
 .assurance-mark strong { color: var(--forest-800); font-size: .55rem; font-weight: 900; letter-spacing: .015em; }
 .assurance-mark small { margin-top: 2px; color: #61756a; font-size: .5rem; font-weight: 750; }
@@ -202,13 +203,13 @@ h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; }
   .stock-label { font-size: .55rem; letter-spacing: .025em; }
   .stock-label::before { width: 5px; height: 5px; }
   .product-status-stack { gap: 5px; }
-  .product-assurances { gap: 6px; }
-  .assurance-mark { min-width: 0; flex-direction: row; gap: 3px; text-align: left; }
+  .product-assurances { gap: 8px; }
+  .assurance-mark { min-width: 53px; flex-direction: row; gap: 4px; color: #164b39; text-align: left; }
   .assurance-mark > span { align-items: flex-start; }
-  .assurance-mark i { width: 23px; height: 23px; }
-  .assurance-mark i svg { width: 13px; height: 13px; }
-  .assurance-mark strong { font-size: .44rem; }
-  .assurance-mark small { margin-top: 1px; font-size: .42rem; }
+  .assurance-mark i { width: 28px; height: 28px; flex: 0 0 28px; border-color: rgba(22,75,57,.52); background: #edf3e9; color: #164b39; box-shadow: inset 0 0 0 2px rgba(255,255,255,.72); }
+  .assurance-mark i svg { width: 16px; height: 16px; fill: rgba(22,75,57,.18); stroke-width: 2.4; }
+  .assurance-mark strong { color: #163f32; font-size: .54rem; }
+  .assurance-mark small { margin-top: 1px; color: #48685a; font-size: .49rem; }
   .product-body h3 { font-size: clamp(1.35rem,6vw,1.65rem); line-height: .98; }
   .product-body p { min-height: 0; font-size: .69rem; line-height: 1.45; }
   .product-bottom { margin-top: auto; padding-top: 8px; }
@@ -255,14 +256,17 @@ h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; }
   .hero-shell, .hero-media { min-height: 310px; }
   .hero-copy h1 { font-size: 2.35rem; }
   .product-card { grid-template-columns: 112px minmax(0,1fr); gap: 11px; }
-  .product-image-wrap, .product-body { height: 151px; min-height: 151px; }
+  .product-image-wrap { height: 174px; min-height: 174px; }
+  .product-body { height: auto; min-height: 174px; }
+  .product-heading-row { flex-wrap: wrap; }
   .stock-label { display: none; }
-  .product-status-stack { gap: 0; }
-  .product-assurances { gap: 4px; }
-  .assurance-mark { min-width: 0; }
-  .assurance-mark i { width: 21px; height: 21px; }
-  .assurance-mark strong { font-size: .4rem; }
-  .assurance-mark small { font-size: .38rem; }
+  .product-status-stack { width: 100%; align-items: flex-start; gap: 0; }
+  .product-assurances { gap: 7px; }
+  .assurance-mark { min-width: 49px; }
+  .assurance-mark i { width: 25px; height: 25px; flex-basis: 25px; }
+  .assurance-mark i svg { width: 15px; height: 15px; }
+  .assurance-mark strong { font-size: .49rem; }
+  .assurance-mark small { font-size: .45rem; }
 }
 
 @media (hover: none) { .product-image-action { opacity: 1; transform: none; } }
